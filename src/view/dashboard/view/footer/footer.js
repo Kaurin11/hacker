@@ -23,14 +23,10 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* <form action="#" class="search u-margin-top-big">
-                    <input type="text" class="search__input" placeholder="Search">
-                    <div class="search__button">
-                        <svg class="search__icon">
-                            <use xlink:href="img/sprite.svg#icon-search"></use>
-                        </svg>
-                    </div>
-                </form> */}
+                <form action="#" class="search u-margin-top-big">
+                    <input type="text" class="search__input" placeholder="Search" />
+                    
+                </form>
 
                 
 

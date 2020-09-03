@@ -1,0 +1,89 @@
+.header{
+    height: 10vh;
+    background-image: linear-gradient(to right bottom,rgba($color-primary-light, 0.8),rgba($color-primary-dark, 0.8));
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    //padding: 3rem 10%;
+
+    &__logo-box{
+        //position: absolute;
+        //top: 1.3rem;
+        //left: 1rem;
+        transition: all .8s;
+
+        animation: moveInLogo .8s ease-out .75s;
+        animation-fill-mode: backwards;
+
+        margin-left: 1rem;
+        width: 7rem;
+        
+    }
+
+    &__logo-box:hover{
+            //outline: .1rem solid $color-red;
+            transform: scale(1.3) ;
+            //box-shadow: 0 2.5rem 3rem rgba($color-black , .8);
+        
+    }
+
+    &__logo{
+        height: 3rem;
+        cursor: pointer;
+        
+    }
+
+    &__text-box{
+        // position: absolute;
+        // top: 50%;
+        // left: 10%;
+        // transform: translate(-50%, -50%);
+        text-align: center;
+        //padding-left: 5rem;
+
+        width:20rem;
+    }
+
+    &__nav-box{
+        flex:1;
+    }
+
+    
+
+}
+
+
+.nav__links{
+    list-style: none;
+    //padding-left: 15rem;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0 .8rem;
+    transition: all .5s;
+
+    &:hover {
+        transform: scale(1.3);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+    
+}
+
+.nav__links li a{
+    transition: all .7s;
+    color: $color-white;
+}
+
+.nav__links li a:hover{
+    color: $color-red;
+}
+
+.btn-box{
+    width:20rem;
+    display: flex;
+    justify-content: center;
+}

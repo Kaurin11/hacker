@@ -6,7 +6,7 @@ import { getAuthUrl, getDashboardUrl } from './utils/constants/routerConstants';
 import Auth from './view/auth';
 import Dashboard from './view/dashboard';
 
-import './App.css';
+import './App.scss';
 
 
 function App() {
