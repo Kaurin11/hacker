@@ -7,11 +7,13 @@ import News from './view/news/news';
 import Comments from './view/comments/comments';
 import Header from './view/header/header';
 import Footer from './view/footer/footer';
+import MobHeader from './view/mobHeader/mobHeader';
 
 const Dashboard = () => {
 
     return(
         <div>
+            <MobHeader />
             <Header />
             <Switch>
                 <Route path={getNewsUrl()} component={News}/>

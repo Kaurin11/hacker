@@ -5,21 +5,18 @@
     background-position: top;
     position: relative;
     display: flex;
-    //justify-content: space-between;
     align-items: center;
     //padding: 3rem 10%;
 
     &__logo-box{
-        //position: absolute;
-        //top: 1.3rem;
-        //left: 1rem;
+        margin-left: 1rem;
+        width: 7rem;
+        
         transition: all .8s;
 
         animation: moveInLogo .8s ease-out .75s;
         animation-fill-mode: backwards;
 
-        margin-left: 1rem;
-        width: 7rem;
         
     }
 
@@ -37,14 +34,12 @@
     }
 
     &__text-box{
-        // position: absolute;
-        // top: 50%;
-        // left: 10%;
-        // transform: translate(-50%, -50%);
+        width:20rem;
+        
         text-align: center;
         //padding-left: 5rem;
 
-        width:20rem;
+        
     }
 
     &__nav-box{
@@ -58,7 +53,6 @@
 
 .nav__links{
     list-style: none;
-    //padding-left: 15rem;
 }
 
 .nav__links li {
@@ -86,4 +80,17 @@
     width:20rem;
     display: flex;
     justify-content: center;
+}
+
+
+@media screen and (max-width: 810px) {
+    .header__nav-box{
+        display: none;
+    }
+
+    .btn-box{
+        flex: 1;
+        justify-content: flex-end;
+        margin-right: 3rem;
+    }
 }
