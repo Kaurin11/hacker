@@ -30,7 +30,25 @@
         z-index: 10;
         position: relative;
         font-size: 2rem;
+        transition: all .5s;
     }
+
+    &__title:hover {
+        transform: scale(1.05);
+        color: $color-primary-dark;
+        //transform: rotate(360deg);
+    }
+
+    &__title-url{
+        color: $color-gray;
+        text-decoration: none;
+        transition: all .5s;
+    }
+
+    &__title-url:hover{
+        color: $color-primary-dark;
+    }
+    
 
 
     &__author {

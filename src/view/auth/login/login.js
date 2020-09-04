@@ -24,23 +24,52 @@ const Login = (props) => {
     }
 
     return (
+        <section class="section-login">
+            <div class="row">
+                <div class="login">
+                    <div class="login__form">
 
-        <form>
+                        <form action="#" class="form">
 
-            <label htmlFor="username">User Name</label>
-            <input 
-                name="username" 
-                {...formik.getFieldProps('username')} />
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-login">
+                                    Log in
+                                </h2>
+                            </div>
 
+                            <div class="form__group">
+                                <label class="form__label" for="username"></label>
+                                <input 
+                                    type="text"
+                                    placeholder="User Name"  
+                                    class="form__input"
+                                    name="username"
+                                    id="username"
+                                    required
+                                    {...formik.getFieldProps('username')} />
+                            </div>
 
-            <label htmlFor="password">Password</label>
-            <input 
-                name="password"
-                {...formik.getFieldProps('password')} />
+                            <div class="form__group">
+                                <label class="form__label" for="password"></label>
+                                <input
+                                    type="email"
+                                    placeholder="Email adress" 
+                                    class="form__input"
+                                    name="password"
+                                    id="password"
+                                    required 
+                                    {...formik.getFieldProps('password')} />
+                            </div>
 
-            <Button onClick={loginHandler} name={'Login'} />
+                            <Button class="btn-login" onClick={loginHandler} name={'Login'} />
 
-        </form>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
 
     )

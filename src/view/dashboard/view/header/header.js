@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {withRouter} from 'react-router-dom';
-import { getCommentsUrl, getLoginUrl } from '../../../../utils/constants/routerConstants';
+import { getCommentsUrl, getLoginUrl, getNewNewsUrl, getNewsUrl } from '../../../../utils/constants/routerConstants';
 
 import './style.scss';
 
@@ -9,21 +9,31 @@ const Header = (props) => {
 
     const commentsHandler = (e) => {
         e.preventDefault();
-
         props.history.push(getCommentsUrl());
+    }
+
+    const newNewsHandler = (e) => {
+        e.preventDefault();
+        props.history.push(getNewNewsUrl());
     }
 
     const loginHandler = (e) => {
         e.preventDefault();
-
         props.history.push(getLoginUrl());
     }
+
+    const topStoryHandler = (e) => {
+        e.preventDefault();
+        props.history.push(getNewsUrl());
+    }
+
+    
 
     return (
         
            <div class="header ">
                 <div class="header__logo-box">
-                    <img class="header__logo" src={"/img/logo-white.png"} alt="Logo" />
+                    <img class="header__logo" onClick={topStoryHandler} src={"/img/logo-white.png"} alt="Logo" />
                 </div>
 
                 <div class="header__text-box" >
@@ -35,8 +45,8 @@ const Header = (props) => {
                 
                 <div class="header__nav-box" >
                     <ul class="nav__links">
-                        <li><a href="#" >New</a></li>
-                        <li><a href="#">Past</a></li>
+                        <li><a href="#" onClick={newNewsHandler}>New</a></li>
+                        <li><a href="#" >Past</a></li>
                         <li><a href="#" onClick={commentsHandler}>Comments</a></li>
                         <li><a href="#">Ask</a></li>
                         <li><a href="#">Show</a></li>

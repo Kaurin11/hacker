@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react';
-import {getStorys, getStoryId} from '../../../../service/newsService';
-import { Story } from '../../../../components/story/story';
+import {getNewStorys, getNewsId} from '../../../../service/newsService';
+import { NewStory } from '../../../../components/newStory/newStory';
 
 
-const News = () => {
+const NewNews = () => {
     const [news, setNews] = useState([]);
 
     //consol.log(news);
@@ -13,12 +13,12 @@ const News = () => {
     }, []);
 
     const getData = async () => {
-        const data = await getStorys();
+        const data = await getNewStorys();
         const backendStorysIds = data.data;
         console.log(backendStorysIds)
 
-        const firstStories = backendStorysIds.slice(0, 10);
-         Promise.all(firstStories.map(id => getStoryId(id))).then(data => {
+        const firstStories = backendStorysIds.slice(0, 50);
+         Promise.all(firstStories.map(id => getNewsId(id))).then(data => {
             setNews(data.map(response => response.data))
             console.log(data.map(response => response.data))
         })
@@ -30,11 +30,11 @@ const News = () => {
 
         <div class="section-main">                        
             {news.map(newsStory => ( 
-                <Story key={newsStory.id} storyUrl={newsStory.url}  title={newsStory.title} by={newsStory.by} score={newsStory.score} comment={newsStory.kids}/>
+                <NewStory key={newsStory.title} storyUrl={newsStory.url}  title={newsStory.title} by={newsStory.by} score={newsStory.score} comment={newsStory.kids}/>
             ))}
         </div> 
     )
     
 }
 
-export default News;
+export default NewNews;

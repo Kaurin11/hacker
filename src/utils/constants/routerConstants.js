@@ -8,3 +8,8 @@ export const getRegistrationUrl = () => `${getAuthUrl()}/registration`;
 
 export const getNewsUrl = () => `${getDashboardUrl()}/news`;
 export const getCommentsUrl = () => `${getDashboardUrl()}/comments`;
+
+export const getNewNewsUrl = () => `${getDashboardUrl()}/new-story`;
+
+
+
