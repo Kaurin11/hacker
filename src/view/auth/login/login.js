@@ -11,7 +11,7 @@ const Login = (props) => {
 
     const formik = useFormik ({
         initialValues : {
-            username : '',
+            email : '',
             password : ''
         }
     })
@@ -38,26 +38,26 @@ const Login = (props) => {
                             </div>
 
                             <div class="form__group">
-                                <label class="form__label" for="username"></label>
-                                <input 
-                                    type="text"
-                                    placeholder="User Name"  
-                                    class="form__input"
-                                    name="username"
-                                    id="username"
-                                    required
-                                    {...formik.getFieldProps('username')} />
-                            </div>
-
-                            <div class="form__group">
-                                <label class="form__label" for="password"></label>
+                                <label class="form__label" for="email"></label>
                                 <input
                                     type="email"
                                     placeholder="Email adress" 
                                     class="form__input"
+                                    name="email"
+                                    id="email"
+                                    required 
+                                    {...formik.getFieldProps('email')} />
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="password"></label>
+                                <input 
+                                    type="text"
+                                    placeholder="Password"  
+                                    class="form__input"
                                     name="password"
                                     id="password"
-                                    required 
+                                    required
                                     {...formik.getFieldProps('password')} />
                             </div>
 
