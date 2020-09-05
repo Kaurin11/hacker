@@ -12,6 +12,7 @@ const NewStory = ({title, by, score, comment, storyUrl, history}) => {
 
         history.push(getCommentsUrl())
     }
+    
 
     return (
         
