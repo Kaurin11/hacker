@@ -55,7 +55,7 @@ const Header = (props) => {
                     </ul>
                 </div>
 
-                <div class="btn-box">
+                <div class="btn-box-more">
                     <a href="#" class="btn btn--white btn--animated" onClick={loginHandler}> Login </a>
                 </div>
                 

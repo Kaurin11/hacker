@@ -1,18 +1,27 @@
 import React from 'react';
 
+import {withRouter} from 'react-router-dom';
+import { getCommentsUrl } from '../../utils/constants/routerConstants';
 
-export const NewStory = ({title, by, score, comment, storyUrl}) => {
+const NewStory = ({title, by, score, comment, storyUrl, history}) => {
 
     const com = comment && comment.length;
 
-    
+    const commentHandler = (e) => {
+        e.preventDefault();
+
+        history.push(getCommentsUrl())
+    }
 
     return (
         
         <div class="news-reviews">
             <div class="news">
                 <div class="news__title">     
-                    <a class="news__title-url" href={storyUrl}>{title}</a>                 
+                    <a style={{display: "table-cell"}} 
+                       target="_blank"  
+                       href={storyUrl}
+                       class="news__title-url">{title}</a>                 
                 </div>
 
 
@@ -22,10 +31,9 @@ export const NewStory = ({title, by, score, comment, storyUrl}) => {
                                 <div> 
                                     <div>{by}</div>
                                 </div>
-                            
-                        </div>
-                            <p class="news__author-comments">{com ? comment && comment.length : 0} comment</p>
-                        </div>
+                        </div >
+                        <p onClick={commentHandler} class="news__author-comments">{com ? comment && comment.length : 0} comment</p>
+                    </div>
 
                     <div class="news__score">
                             <div>
@@ -38,3 +46,4 @@ export const NewStory = ({title, by, score, comment, storyUrl}) => {
     )
 }
 
+export default withRouter(NewStory);
