@@ -1,10 +1,7 @@
 import React from 'react';
 
 import { withRouter } from 'react-router-dom';
-import {
-  getCommentsUrl,
-  getCommentUrl,
-} from '../../utils/constants/routerConstants';
+import { getCommentUrl } from '../../utils/constants/routerConstants';
 
 const Story = ({
   storyId,

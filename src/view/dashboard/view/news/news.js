@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {
-  getStorys,
-  getStoryId,
-  getComments,
-  getComment,
-} from '../../../../service/newsService';
+import { getStorys, getStoryId } from '../../../../service/newsService';
 import Story from '../../../../components/story/story';
 
 import Button from '../../../../components/button/button';
-import newStory from '../../../../components/newStory/newStory';
 
 const News = () => {
   const [news, setNews] = useState([]);
-  const [visiable, setVisiable] = useState(4);
+  const [newsIds, setNewsIds] = useState([]);
+  const [counter, setCounter] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -20,30 +15,40 @@ const News = () => {
   }, []);
 
   const getData = async () => {
-    const data = await getStorys();
-    const backendStorysIds = data.data;
-    console.log(data, 'data');
-    console.log(backendStorysIds, 123);
+    const { data } = await getStorys();
+    const newsStoriesIds = data;
+    setNewsIds(newsStoriesIds);
 
-    const firstStories = backendStorysIds.slice(0, 4);
-    Promise.all(firstStories.map((id) => getStoryId(id))).then((data) => {
-      setNews(data.map((response) => response.data));
+    // newsStoriesIds.forEach(id => {
+    //  const {data} = await getStoryId(id)
+    //  setNews([...news, data])
+    // })
+    const newsRequests = newsStoriesIds.slice(0, 4).map((id) => getStoryId(id));
 
+    Promise.all(newsRequests).then((promiseAllResponse) => {
+      const allData = promiseAllResponse.map((response) => response.data);
+      setNews(allData);
       setLoading(true);
-
-      console.log(
-        data.map((res) => res.data),
-        456
-      );
     });
   };
+
+  useEffect(() => {
+    const newNewsStoriesIds = newsIds.slice(counter * 4, counter * 4 + 4);
+    const newNewsStoriesRequests = newNewsStoriesIds.map((id) =>
+      getStoryId(id)
+    );
+    Promise.all(newNewsStoriesRequests).then((promiseAllResponse) => {
+      const allData = promiseAllResponse.map((response) => response.data);
+      setNews([...news, ...allData]);
+    });
+  }, [counter]);
 
   console.log(news, 'aloo');
 
   const moreStoryHandler = (e) => {
     e.preventDefault();
 
-    setVisiable(visiable + 4);
+    setCounter(counter + 1);
   };
 
   return (
