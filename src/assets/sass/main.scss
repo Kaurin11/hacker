@@ -1,23 +1,22 @@
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "abstracts/variables";
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
 
-@import "base/animations";
-@import "base/base";
-@import "base/typography";
-@import "base/utilitles";
+@import 'base/animations';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilitles';
 
-@import "components/button";
-@import "components/search";
-@import "components/form";
+@import 'components/button';
+@import 'components/search';
+@import 'components/form';
+//@import 'components/spinner';
 
-@import "leyout/header";
-@import "leyout/footer";
-@import "leyout/navigation";
-@import "leyout/news";
-@import "leyout/grid";
+@import 'leyout/header';
+@import 'leyout/footer';
+@import 'leyout/navigation';
+@import 'leyout/news';
+@import 'leyout/grid';
+@import 'leyout/comments';
 
-@import "pages/home";
-
-
-
+@import 'pages/home';

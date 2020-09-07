@@ -1,13 +1,8 @@
 import React from 'react';
 
 const Registration = () => {
-
-    return(
-        <div>
-            Registration
-        </div>
-    )
-    
-}
+  console.log('regist');
+  return <div>Registration</div>;
+};
 
 export default Registration;
