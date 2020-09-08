@@ -4,24 +4,20 @@ import NewStory from '../../../../components/newStory/newStory';
 import Button from '../../../../components/button/button';
 
 const NewNews = () => {
-  const [news, setNews] = useState([]);
+  const [newNewsStory, setNewNewsStory] = useState([]);
   const [visiable, setVisiable] = useState(3);
-
-  //consol.log(news);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
-    const data = await getNewStorys();
-    const backendStorysIds = data.data;
-    console.log(backendStorysIds);
+    const { data } = await getNewStorys();
+    const backendStorysIds = data;
 
     const firstStories = backendStorysIds.slice(0, 10);
     Promise.all(firstStories.map((id) => getNewsId(id))).then((data) => {
-      setNews(data.map((response) => response.data));
-      console.log(data.map((response) => response.data));
+      setNewNewsStory(data.map((response) => response.data));
     });
   };
 
@@ -33,7 +29,7 @@ const NewNews = () => {
 
   return (
     <div class="section-main">
-      {news.slice(0, visiable).map((newsStory) => (
+      {newNewsStory.slice(0, visiable).map((newsStory) => (
         <NewStory
           key={newsStory.id}
           storyUrl={newsStory.url}

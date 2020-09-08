@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
@@ -9,24 +9,13 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import { getCommentUrl } from '../../utils/constants/routerConstants';
 import { getStorys, getStoryId } from '../../service/newsService';
 
-const CommentStory = ({ commentId, comment, text, by, history }) => {
-  console.log(comment);
-  const com = comment && comment.length;
+const CommentStory = ({ commentOfComment, text, by }) => {
+  const com = commentOfComment && commentOfComment.length;
 
   const [kidsComments, setKidsComments] = useState([]);
   const [kidsCommentsId, setKidsCommentsId] = useState([]);
-
-  const toggleHandler = () => {
-    //e.preventDefault();
-
-    console.log('toggle');
-    history.push(getCommentUrl(commentId));
-    console.log(commentId, 'IdCom');
-    console.log(kidsComments, 'ajajaja');
-  };
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,33 +34,35 @@ const CommentStory = ({ commentId, comment, text, by, history }) => {
     const newsComStoriesIds = data;
     setKidsCommentsId(newsComStoriesIds);
 
-    const newsComRequests = comment.map((id) => getStoryId(id));
+    const newsComRequests = commentOfComment.map((id) => getStoryId(id));
 
     Promise.all(newsComRequests).then((promiseAllResponse) => {
       const allDataCom = promiseAllResponse.map((response) => response.data);
       setKidsComments(allDataCom);
     });
-
-    console.log(kidsCommentsId, 'kids kids');
   };
 
   return (
     <div>
-      <div class="comments-reviews">
-        <div class="comments">
-          <div class="comments__text">"{text}"</div>
+      <div class="kidsComents-reviews">
+        <div class="kidsComents">
+          <div class="kidsComents__text">"{text}"</div>
 
-          <div class="comments__author">
-            <div class="comments__author-box">
+          <div class="kidsComents__author">
+            <div class="kidsComents__author-box">
               author:
-              <div class="comments__author-name">
+              <div class="kidsComents__author-name">
                 <div> {by} </div>
               </div>
               <div>
                 <div className={classes.root}>
                   <Accordion
                     onChange={(event, expanded) => {
-                      if (expanded && comment && comment.length !== 0) {
+                      if (
+                        expanded &&
+                        commentOfComment &&
+                        commentOfComment.length !== 0
+                      ) {
                         handleChange();
                       }
                     }}
@@ -82,28 +73,38 @@ const CommentStory = ({ commentId, comment, text, by, history }) => {
                       id="panel1a-header"
                     >
                       <Typography className={classes.heading}>
-                        {com ? comment && comment.length : 0} comments
+                        <div class="kidsComents__number">
+                          {com
+                            ? commentOfComment && commentOfComment.length
+                            : 0}{' '}
+                          comments
+                        </div>
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
-                        {kidsComments.map((kids) => kids.text)}
+                        <div class="kidsComents-reviews">
+                          <div class="kidsComents">
+                            <div class="kidsComents__text">
+                              {kidsComments.map((kids) => (
+                                <ul class="kidsComents__accordion">
+                                  {' '}
+                                  <li class="kidsComents__accordion--li">
+                                    {kids.text}
+                                  </li>
+                                  <tr key={kids.text} />
+                                  <td class="kidsComents__accordion--td kidsComents__author-comments">
+                                    author: {kids.by}
+                                  </td>
+                                </ul>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
-                  <p
-                    onClick={() => toggleHandler()}
-                    class="comments__author-comments"
-                  >
-                    gidra
-                  </p>
                 </div>
-                {/* <p
-                  onClick={() => toggleHandler()}
-                  class="comments__author-comments"
-                >
-                  {com ? comment && comment.length : 0} comments
-                </p> */}
               </div>
             </div>
           </div>

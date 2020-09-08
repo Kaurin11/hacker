@@ -3,21 +3,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { getCommentUrl } from '../../utils/constants/routerConstants';
 
-const Story = ({
-  storyId,
-  title,
-  by,
-  score,
-  comment,
-  kids,
-  storyUrl,
-  history,
-}) => {
-  console.log(storyId);
+const Story = ({ storyId, title, by, score, comment, storyUrl, history }) => {
   const commentHandler = () => {
     //e.preventDefault();
 
-    console.log(storyId);
     history.push(getCommentUrl(storyId));
   };
 

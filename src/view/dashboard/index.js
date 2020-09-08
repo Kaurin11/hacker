@@ -4,7 +4,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import {
   getNewsUrl,
-  getCommentsUrl,
   getNewNewsUrl,
 } from '../../utils/constants/routerConstants';
 import News from './view/news/news';
@@ -22,7 +21,6 @@ const Dashboard = () => {
       <Switch>
         <Route exact path={getNewsUrl()} component={News} />
         <Route path={`${getNewsUrl()}/:component/:id`} component={Comments} />
-        {/* <Route path={getCommentsUrl()} component={Comments} /> */}
         <Route path={getNewNewsUrl()} component={NewNews} />
         <Redirect to={getNewsUrl()} />
       </Switch>

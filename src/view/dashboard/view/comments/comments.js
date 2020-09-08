@@ -7,37 +7,31 @@ import { getComment } from '../../../../service/newsService';
 import CommentStory from '../../../../components/commentStory/commentStory';
 
 const Comments = ({ match }) => {
-  const [comment, setComments] = useState([]);
+  const [commentOfStory, setCommentOfStory] = useState([]);
   const [currentId, setId] = useState();
 
   useEffect(async () => {
     const { id } = match.params;
-    console.log(match.params);
     const { data } = await getStoryId(id);
-    const backendCooments = data.kids;
-    setId(backendCooments);
+    const backendComments = data.kids;
+    setId(backendComments);
 
-    console.log(data, 66);
-    console.log(backendCooments, 44);
-
-    const commentStory = backendCooments;
+    const commentStory = backendComments;
     Promise.all(commentStory.map((id) => getComment(id))).then((data) => {
-      setComments(data.map((response) => response.data));
+      setCommentOfStory(data.map((response) => response.data));
     });
   }, []);
 
-  console.log(comment, 11111);
-
   return (
     <div class="section-comment">
-      {comment.map((com) => {
+      {commentOfStory.map((coment) => {
         return (
           <CommentStory
-            commentId={com.id}
-            key={com.id}
-            by={com.by}
-            text={com.text}
-            comment={com.kids}
+            commentId={coment.id}
+            key={coment.id}
+            by={coment.by}
+            text={coment.text}
+            commentOfComment={coment.kids}
           />
         );
       })}

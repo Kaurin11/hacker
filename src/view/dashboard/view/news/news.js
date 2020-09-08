@@ -43,8 +43,6 @@ const News = () => {
     });
   }, [counter]);
 
-  console.log(news, 'aloo');
-
   const moreStoryHandler = (e) => {
     e.preventDefault();
 
@@ -53,23 +51,6 @@ const News = () => {
 
   return (
     <div class="section-main">
-      {/* {loading ? (
-        news
-          .slice(0, visiable)
-          .map((newsStory) => (
-            <Story
-              key={newsStory.id}
-              storyUrl={newsStory.url}
-              title={newsStory.title}
-              by={newsStory.by}
-              score={newsStory.score}
-              kids={newsStory.kids}
-              comment={newsStory.kids}
-            />
-          ))
-      ) : (
-        <Bootstrap.Spinner animation="grow" />
-      )} */}
       {news.map((newsStory) => {
         return (
           <Story
