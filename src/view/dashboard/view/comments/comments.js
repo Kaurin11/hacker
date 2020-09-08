@@ -1,29 +1,42 @@
-import React,{useState, useEffect} from 'react';
-import { getComments } from '../../../../service/newsService';
+import React, { useState, useEffect } from 'react';
 
-const Comments = () => {
+import { withRouter } from 'react-router-dom';
+import { getStoryId } from '../../../../service/newsService';
 
-    const [comments, setComments] = useState([]);
+import { getComment } from '../../../../service/newsService';
+import CommentStory from '../../../../components/commentStory/commentStory';
 
-    useEffect (() => {
-        getComment();
-    }, []);
+const Comments = ({ match }) => {
+  const [commentOfStory, setCommentOfStory] = useState([]);
+  const [currentId, setId] = useState();
 
-    const getComment = async () => {
-        const data = await getComments();
-        const backendComments = data.data;
-        setComments(backendComments);
+  useEffect(async () => {
+    const { id } = match.params;
+    const { data } = await getStoryId(id);
+    const backendComments = data.kids;
+    setId(backendComments);
 
-        console.log(backendComments, 1);
-    }
+    const commentStory = backendComments;
+    Promise.all(commentStory.map((id) => getComment(id))).then((data) => {
+      setCommentOfStory(data.map((response) => response.data));
+    });
+  }, []);
 
-    console.log('react 1111');
-    return(
-        <div>
-            Comments
-        </div>
-    )
-    
-}
+  return (
+    <div class="section-comment">
+      {commentOfStory.map((coment) => {
+        return (
+          <CommentStory
+            commentId={coment.id}
+            key={coment.id}
+            by={coment.by}
+            text={coment.text}
+            commentOfComment={coment.kids}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
-export default Comments;
+export default withRouter(Comments);

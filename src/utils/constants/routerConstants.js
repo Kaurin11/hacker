@@ -1,15 +1,11 @@
 export const getAuthUrl = () => '/auth';
 export const getDashboardUrl = () => '/dashboard';
 
-
 export const getLoginUrl = () => `${getAuthUrl()}/login`;
-export const getRegistrationUrl = () => `${getAuthUrl()}/registration`;
-
 
 export const getNewsUrl = () => `${getDashboardUrl()}/news`;
-export const getCommentsUrl = () => `${getDashboardUrl()}/comments`;
+
+export const getCommentUrl = (id) => `${getNewsUrl()}/comments/${id}`;
+export const getCommentsUrl = () => `${getDashboardUrl()}/comments/}`;
 
 export const getNewNewsUrl = () => `${getDashboardUrl()}/new-story`;
-
-
-
