@@ -23,21 +23,21 @@ const Login = (props) => {
   };
 
   return (
-    <section class="section-login">
-      <div class="row">
-        <div class="login">
-          <div class="login__form">
-            <form action="#" class="form">
-              <div class="u-margin-bottom-medium">
-                <h2 class="heading-login">Log in</h2>
+    <section className="section-login">
+      <div className="row">
+        <div className="login">
+          <div className="login__form">
+            <form action="#" className="form">
+              <div className="u-margin-bottom-medium">
+                <h2 className="heading-login">Log in</h2>
               </div>
 
-              <div class="form__group">
-                <label class="form__label" for="email"></label>
+              <div className="form__group">
+                <label className="form__label" htmlFor="email"></label>
                 <input
                   type="email"
                   placeholder="Email adress"
-                  class="form__input"
+                  className="form__input"
                   name="email"
                   id="email"
                   required
@@ -45,12 +45,12 @@ const Login = (props) => {
                 />
               </div>
 
-              <div class="form__group">
-                <label class="form__label" for="password"></label>
+              <div className="form__group">
+                <label className="form__label" htmlFor="password"></label>
                 <input
                   type="text"
                   placeholder="Password"
-                  class="form__input"
+                  className="form__input"
                   name="password"
                   id="password"
                   required
@@ -58,7 +58,7 @@ const Login = (props) => {
                 />
               </div>
 
-              <Button class="btn-login" onClick={loginHandler} name={'Login'} />
+              <Button className="btn-login" onClick={loginHandler} name={'Login'} />
             </form>
           </div>
         </div>

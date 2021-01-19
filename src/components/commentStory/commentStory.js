@@ -44,14 +44,14 @@ const CommentStory = ({ commentOfComment, text, by }) => {
 
   return (
     <div>
-      <div class="kidsComents-reviews">
-        <div class="kidsComents">
-          <div class="kidsComents__text">"{text}"</div>
+      <div className="kidsComents-reviews">
+        <div className="kidsComents">
+          <div className="kidsComents__text">"{text}"</div>
 
-          <div class="kidsComents__author">
-            <div class="kidsComents__author-box">
+          <div className="kidsComents__author">
+            <div className="kidsComents__author-box">
               author:
-              <div class="kidsComents__author-name">
+              <div className="kidsComents__author-name">
                 <div> {by} </div>
               </div>
               <div>
@@ -72,8 +72,8 @@ const CommentStory = ({ commentOfComment, text, by }) => {
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                     >
-                      <Typography className={classes.heading}>
-                        <div class="kidsComents__number">
+                      <Typography component={'span'} variant={'body2'} className={classes.heading}>
+                        <div className="kidsComents__number">
                           {com
                             ? commentOfComment && commentOfComment.length
                             : 0}{' '}
@@ -82,21 +82,21 @@ const CommentStory = ({ commentOfComment, text, by }) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography>
-                        <div class="kidsComents-reviews">
-                          <div class="kidsComents">
-                            <div class="kidsComents__text">
+                      <Typography component={'span'} variant={'body2'}>
+                        <div className="kidsComents-reviews">
+                          <div className="kidsComents">
+                            <div className="kidsComents__text">
                               {kidsComments.map((kids) => (
-                                <ul class="kidsComents__accordion">
-                                  {' '}
-                                  <li class="kidsComents__accordion--li">
+                                <div key={kids.id} className="kidsComents__accordion">
+                                  
+                                  <div className="kidsComents__accordion--li">
                                     {kids.text}
-                                  </li>
-                                  <tr key={kids.text} />
-                                  <td class="kidsComents__accordion--td kidsComents__author-comments">
+                                  </div>
+                                  
+                                  <div key={kids.text} className="kidsComents__accordion-div kidsComents__author-comments">
                                     author: {kids.by}
-                                  </td>
-                                </ul>
+                                  </div>
+                                </div>
                               ))}
                             </div>
                           </div>

@@ -10,20 +10,27 @@ const Comments = ({ match }) => {
   const [commentOfStory, setCommentOfStory] = useState([]);
   const [currentId, setId] = useState();
 
-  useEffect(async () => {
-    const { id } = match.params;
-    const { data } = await getStoryId(id);
-    const backendComments = data.kids;
-    setId(backendComments);
+  useEffect(() => {
 
-    const commentStory = backendComments;
-    Promise.all(commentStory.map((id) => getComment(id))).then((data) => {
-      setCommentOfStory(data.map((response) => response.data));
-    });
+    const getData = async() => {
+      const { id } = match.params;
+      const { data } = await getStoryId(id);
+      const backendComments = data.kids;
+      setId(backendComments);
+      console.log(currentId);
+  
+      const commentStory = backendComments;
+      Promise.all(commentStory.map((id) => getComment(id))).then((data) => {
+        setCommentOfStory(data.map((response) => response.data));
+      });
+    };
+
+    getData();
+   
   }, []);
 
   return (
-    <div class="section-comment">
+    <div className="section-comment">
       {commentOfStory.map((coment) => {
         return (
           <CommentStory

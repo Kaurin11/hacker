@@ -28,7 +28,7 @@ const NewNews = () => {
   };
 
   return (
-    <div class="section-main">
+    <div className="section-main">
       {newNewsStory.slice(0, visiable).map((newsStory) => (
         <NewStory
           key={newsStory.id}
@@ -40,7 +40,7 @@ const NewNews = () => {
         />
       ))}
 
-      <div class="btn-box-more">
+      <div className="btn-box-more">
         <Button onClick={moreStoryHandler} name={'More'} />
       </div>
     </div>

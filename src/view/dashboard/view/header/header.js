@@ -32,24 +32,24 @@ const Header = (props) => {
   };
 
   return (
-    <div class="header ">
-      <div class="header__logo-box">
+    <div className="header ">
+      <div className="header__logo-box">
         <img
-          class="header__logo"
+          className="header__logo"
           onClick={topStoryHandler}
           src={'/img/logo-white.png'}
           alt="Logo"
         />
       </div>
 
-      <div class="header__text-box">
-        <h1 class="heading-primary">
-          <span class="heading-primary--main">Hackers News</span>
+      <div className="header__text-box">
+        <h1 className="heading-primary">
+          <span className="heading-primary--main">Hackers News</span>
         </h1>
       </div>
 
-      <div class="header__nav-box">
-        <ul class="nav__links">
+      <div className="header__nav-box">
+        <ul className="nav__links">
           <li>
             <a href="#" onClick={newNewsHandler}>
               New
@@ -78,10 +78,10 @@ const Header = (props) => {
         </ul>
       </div>
 
-      <div class="btn-box">
-        <a href="#" class="btn btn--white btn--animated" onClick={loginHandler}>
+      <div className="btn-box">
+        <a href="#" className="btn btn--white btn--animated" onClick={loginHandler}>
           {' '}
-          Login{' '}
+          Logout{' '}
         </a>
       </div>
     </div>

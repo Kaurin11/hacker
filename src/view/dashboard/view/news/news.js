@@ -29,6 +29,7 @@ const News = () => {
       const allData = promiseAllResponse.map((response) => response.data);
       setNews(allData);
       setLoading(true);
+      console.log(loading)
     });
   };
 
@@ -50,7 +51,7 @@ const News = () => {
   };
 
   return (
-    <div class="section-main">
+    <div className="section-main">
       {news.map((newsStory) => {
         return (
           <Story
@@ -66,7 +67,7 @@ const News = () => {
         );
       })}
 
-      <div class="btn-box-more">
+      <div className="btn-box-more">
         <Button onClick={moreStoryHandler} name={'More'} />
       </div>
     </div>

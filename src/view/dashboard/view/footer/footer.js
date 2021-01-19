@@ -3,28 +3,28 @@ import React from 'react';
 const Footer = () => {
 
     return (
-        <div class="footer u-margin-top-big">
+        <div className="footer u-margin-top-big">
 
-                <p class="footer__text u-center-text .u-margin-bottom-medium">
+                <p className="footer__text u-center-text .u-margin-bottom-medium">
                     	Application are open for YC Winter 2021
                 </p>
 
-                <div class="footer__navigation  u-center-text">
-                    <ul class="footer__list u-center-text">
-                        <li class="footer__item "><a href="#" class="footer__link">Guidelines</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">FAQ</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Api</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Security</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Lists</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Bookmarket</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Legal</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Apply to YC</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Contact</a></li>
+                <div className="footer__navigation  u-center-text">
+                    <ul className="footer__list u-center-text">
+                        <li className="footer__item "><a href="#" className="footer__link">Guidelines</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">FAQ</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Api</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Security</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Lists</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Bookmarket</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Legal</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Apply to YC</a></li>
+                        <li className="footer__item"><a href="#" className="footer__link">Contact</a></li>
                     </ul>
                 </div>
 
-                <form action="#" class="search u-margin-top-big">
-                    <input type="text" class="search__input" placeholder="Search" />
+                <form action="#" className="search u-margin-top-big">
+                    <input type="text" className="search__input" placeholder="Search" />
                     
                 </form>
 
