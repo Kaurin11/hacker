@@ -59,7 +59,7 @@
   }
 
   &::after {
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     width: 100%;
@@ -74,5 +74,16 @@
   &--animated {
     animation: moveInBotton 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .btn {
+    //width: 4rem;
+    text-align: center;
+
+    &--white {
+      inline-size: 1;
+    }
   }
 }

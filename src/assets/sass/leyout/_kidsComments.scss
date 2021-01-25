@@ -133,3 +133,9 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .kidsComents {
+    padding: unset;
+  }
+}
